@@ -1,7 +1,7 @@
                                                      # PRUEBA JUNIOR DEVELOPER
 aqui se subira la prueba de junior developer
 
-# INFORMACION ADICIONAL: para consumir las peticiones que tiene para ofrecer este programa se ofrecen 4 links
+# INFORMACION ADICIONAL: para consumir las peticiones que tiene para ofrecer este programa se ofrecen 6 links
 
 Agregar Articulo (POST)(inserta en el body en formato JSON el Articulo)
 http://localhost:8080/articles/
