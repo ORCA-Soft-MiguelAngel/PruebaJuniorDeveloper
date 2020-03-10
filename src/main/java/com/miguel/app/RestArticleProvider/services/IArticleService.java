@@ -8,6 +8,7 @@ package com.miguel.app.RestArticleProvider.services;
 import com.miguel.app.RestArticleProvider.model.Article;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 /**
  *
@@ -19,6 +20,8 @@ public interface IArticleService {
     List<Article> listAll();
     
     Article ListById(int idArticle);
+    
+    Optional<Article> listById(int idArticle);
             
     void createOrUpdate(Article article);
     

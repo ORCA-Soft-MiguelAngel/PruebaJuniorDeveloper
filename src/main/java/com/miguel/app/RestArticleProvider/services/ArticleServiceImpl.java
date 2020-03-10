@@ -7,9 +7,9 @@ package com.miguel.app.RestArticleProvider.services;
 
 import com.miguel.app.RestArticleProvider.model.Article;
 import com.miguel.app.RestArticleProvider.repository.ArticlesRepository;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -63,6 +63,11 @@ public class ArticleServiceImpl implements IArticleService{
             return repo.findById(idArticle).get();
         }
         return null;
+    }
+
+    @Override
+    public Optional<Article> listById(int idArticle) {
+        return repo.findById(idArticle);
     }
     
 }

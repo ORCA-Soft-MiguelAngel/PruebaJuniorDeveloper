@@ -57,6 +57,7 @@ public class ArticleRestController {
         article.setTagsList(listaFinal);
 
         //read of the user, if exists 
+        
         serviceArticle.createOrUpdate(article);
 
         return article;
