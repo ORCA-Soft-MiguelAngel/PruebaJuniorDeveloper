@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,7 +40,7 @@ public class ArticleRestController {
 
     //CREATE OR UPDATE AN ARTICLE
     @PostMapping("/")
-    public Article saveOrUpdate(@RequestBody Article article) {
+    public Article save(@RequestBody Article article) {
 
         List<Tags> listaFinal = new ArrayList<>();
 
@@ -57,13 +58,41 @@ public class ArticleRestController {
         article.setTagsList(listaFinal);
 
         //read of the user, if exists 
-        
         serviceArticle.createOrUpdate(article);
 
         return article;
     }
 
-    //ERASE A ARTICLE
+    @PutMapping("/{id}")
+    public Article edit(@RequestBody Article article, @PathVariable("id") int idArticle) {
+
+        List<Tags> listaFinal = new ArrayList<>();
+
+        //Reading the Tags in the DB, if they exists, just add to the final list, otherwise save and add
+        for (Tags tags : article.getTagsList()) {
+
+            if (serviceTags.findByKeywordName(tags.getTagname()).isPresent()) {
+                listaFinal.add(serviceTags.findByKeywordName(tags.getTagname()).get());
+            } else {
+                serviceTags.createOrUpdate(tags);
+                listaFinal.add(tags);
+            }
+        }
+
+        article.setTagsList(listaFinal);
+
+        //read of the user, if exists 
+        if(serviceArticle.findIfArticleExistsById(idArticle)){
+            serviceArticle.createOrUpdate(article);
+        }
+        
+        
+        
+
+        return article;
+    }
+
+    //ERASE AN ARTICLE
     @DeleteMapping("/{id}")
     public Article delete(@PathVariable("id") int idArticle) {
         Article article = serviceArticle.ListById(idArticle);

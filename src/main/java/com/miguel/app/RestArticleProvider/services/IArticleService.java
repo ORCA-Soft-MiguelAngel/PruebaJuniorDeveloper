@@ -33,4 +33,6 @@ public interface IArticleService {
     
     List<Article> listAllArticlesByKeywords(String Keyword);
     
+    boolean findIfArticleExistsById(int idArticle);
+    
 }

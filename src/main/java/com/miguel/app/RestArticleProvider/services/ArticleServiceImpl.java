@@ -18,11 +18,11 @@ import org.springframework.stereotype.Service;
  * @author Miguel
  */
 @Service
-public class ArticleServiceImpl implements IArticleService{
+public class ArticleServiceImpl implements IArticleService {
 
     @Autowired
     ArticlesRepository repo;
-    
+
     @Override
     public void createOrUpdate(Article article) {
         repo.save(article);
@@ -35,12 +35,12 @@ public class ArticleServiceImpl implements IArticleService{
 
     @Override
     public List<Article> listAllArticlesByGivenAuthor(String author) {
-         return repo.findByIduserauthor_FullnameContaining(author);
+        return repo.findByIduserauthor_FullnameContaining(author);
     }
 
     @Override
     public List<Article> listAllArticlesByAGivenPeriod(Date minimumPeriod, Date maximunPeriod) {
-         return repo.findByPublishdateBetween(minimumPeriod, maximunPeriod);
+        return repo.findByPublishdateBetween(minimumPeriod, maximunPeriod);
     }
 
     @Override
@@ -48,9 +48,7 @@ public class ArticleServiceImpl implements IArticleService{
         return repo.findByTagsList_Tagname(Keyword);
     }
 
-    
     //MEHTODS BELOW HERE SHOULD BE ERASED CAUSE IS ONLY FOR TESTING
-    
     @Override
     public List<Article> listAll() {
         return repo.findAll();
@@ -58,8 +56,8 @@ public class ArticleServiceImpl implements IArticleService{
 
     @Override
     public Article ListById(int idArticle) {
-  
-        if(repo.findById(idArticle).isPresent()){
+
+        if (repo.findById(idArticle).isPresent()) {
             return repo.findById(idArticle).get();
         }
         return null;
@@ -69,5 +67,11 @@ public class ArticleServiceImpl implements IArticleService{
     public Optional<Article> listById(int idArticle) {
         return repo.findById(idArticle);
     }
-    
+
+    @Override
+    public boolean findIfArticleExistsById(int idArticle) {
+
+        return repo.findById(idArticle).isPresent();
+    }
+
 }
