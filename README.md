@@ -9,7 +9,7 @@ http://localhost:8080/articles/
 Editar Articulo (PUT)(inserta en el body en formato JSON el Articulo)
 http://localhost:8080/articles/id
 
-Eliminar Articulo (DLEETE)
+Eliminar Articulo (DELETE)
 http://localhost:8080/articles/id
 
 Lista de articulos por autor(GET)
