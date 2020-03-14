@@ -58,6 +58,7 @@ NOTA 2: el autor pudo haber sido un atributo simple de la tabla de Articulos per
 
 dejare el archivo .sql en este repositorio para que puedas agregarlo a tu BBDD y probar en caso que sea necesario.
 
+[testrestDataBase.txt](https://github.com/ORCA-Soft-MiguelAngel/PruebaJuniorDeveloper/files/4333343/testrestDataBase.txt)
 
 ## Pequeña Descripcion del patron
 
