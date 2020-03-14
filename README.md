@@ -6,8 +6,8 @@ aqui se subira la prueba de junior developer
 Agregar Articulo (POST)(inserta en el body en formato JSON el Articulo)
 http://localhost:8080/articles/
 
-Editar Articulo (POST)(inserta en el body en formato JSON el Articulo)
-http://localhost:8080/articles/
+Editar Articulo (PUT)(inserta en el body en formato JSON el Articulo)
+http://localhost:8080/articles/id
 
 Eliminar Articulo (DLEETE)
 http://localhost:8080/articles/id
